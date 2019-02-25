@@ -17,6 +17,7 @@ p {
     color: #444444;
     font-family: 'Roboto', sans-serif;
     font-size: 14pt;
+    line-height: 1.75;
     margin: 4pt;
 }
 p.value-description {
