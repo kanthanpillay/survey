@@ -52,6 +52,7 @@
 <p>You can send these results by copying and pasting the URL at the top of the page or using the image below. Think your matched ideology was wrong? Want to help us calibrate the test? Send the results along with your political ideology to us at eightvalues@gmail.com, or send us any comments, questions, or criticism. </p>
 -->
 <hr/>
+<p id="root"></p>
 <!-- <canvas id="banner" width=800 height=650 style="font-family:Montserrat"></canvas> -->
 <div id="snowflake">
 
@@ -74,15 +75,22 @@ registration details with the Independent Electoral Commission.
 <form class="question" action="https://purplecow.mobi/submit.php" method="post" onsubmit="return validform();">
 <p> <input type="text" name="name" placeholder="Full Name"></p>
 <p><input type="text" name="idnumber" placeholder="ID number" /></p>
-<p> <input type="text" name="mobile" placeholder="Mobile Number"></p>
+<p> <input type="tel" name="mobile" placeholder="Mobile Number"></p>
+<p> <input type="email" name="email" placeholder="name@example.com"></p>
 <p> <input type="text" name="twitter" placeholder="Twitter Handle"></p>
+<p> <input type="hidden" name="origurl" id="origurl"></p>
+
 
 <input class="submit" type="submit" value="I agree with Ts&Cs. Sign me up!">
 </form>
 <button class="button" onclick="location.href='index.html';" style="background-color: #2196f3;">I've changed my mind. Get me out of here!</button> <br>
 </div>
 
+
 <script>
+  var test = window.location.href;
+  document.getElementById("origurl").value = test;
+
   function getQueryVariable(variable)
   {
          var query = window.location.search.substring(1)
