@@ -10,13 +10,14 @@
 <?php
 // Collects output from survey. Writes to str_getcsv
 
-$data_file = fopen("/var/tmp/example.tsv","a");
+$data_file = fopen("/var/www/private/candidates.tsv","a");
 $name = $_POST["name"];
 $idnumber = $_POST["idnumber"];
 $mobile = $_POST["mobile"];
+$email = $_POST["email"];
 $twitter = $_POST["twitter"];
 $origurl = $_POST["origurl"];
-$text_to_write = $name . "\t" . $idnumber . "\t" . $mobile . "\t" . $twitter . "\t" . $origurl . "\t" . "\n";
+$text_to_write = $name . "\t" . $idnumber . "\t" . $mobile . "\t" . $email . "\t" . $twitter . "\t" . $origurl . "\t" . "\n";
 
 // Write data to file
 fwrite($data_file,$text_to_write);
