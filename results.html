@@ -72,7 +72,7 @@ background checks to see whether you are eligible including checking your
 registration details with the Independent Electoral Commission.
 <li>Other than for such purposes of checking your eligibility, your data will not be shared with anyone.</li>
 </ol>
-<form class="question" action="https://purplecow.mobi/submit.php" method="post" onsubmit="return validateID();">
+<form name="pleasevalidateme" class="question" action="https://purplecow.mobi/submit.php" method="post" onsubmit="return validateID();">
 <p> <input type="text" name="name" placeholder="Full Name"></p>
 <p><input type="text" name="idnumber" placeholder="ID number" /></p>
 <p> <input type="tel" name="mobile" placeholder="Mobile Number"></p>
@@ -88,6 +88,16 @@ registration details with the Independent Electoral Commission.
 
 
 <script>
+  function validateID() {
+  var ex = /^(((\d{2}((0[13578]|1[02])(0[1-9]|[12]\d|3[01])|(0[13456789]|1[012])(0[1-9]|[12]\d|30)|02(0[1-9]|1\d|2[0-8])))|([02468][048]|[13579][26])0229))(( |-)(\d{4})( |-)(\d{3})|(\d{7}))/;
+  var theIDnumber = document.forms["pleasevalidateme"]["idnumber"].value;
+  if (ex.test(theIDnumber) == false) {
+    // alert code goes here
+    alert('Please supply a valid ID number');
+    return false;
+  }
+  return true;
+}
   var test = window.location.href;
   document.getElementById("origurl").value = test;
 
